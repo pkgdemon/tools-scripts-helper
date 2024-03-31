@@ -5,8 +5,7 @@ kernel=$(uname -s)
 
 if [ "$kernel" = "FreeBSD" ]; then
   echo "Running on FreeBSD"
-  pkg install -y bash
-  ln -s /usr/local/bin/bash /bin/bash
+  sed -i "s|/bin/bash|/bin/sh|g" tools-scripts/clone-all-repos-https
 fi
 
 if [ ! -d "gnustep-src" ] ; then
