@@ -11,16 +11,16 @@ git clone https://github.com/gnustep/tools-scripts
 
 if [ "$kernel" = "FreeBSD" ]; then
   echo "Running on FreeBSD"
-  sed -i'' -e "s|/bin/bash|/bin/sh|g" tools-scripts/clone-all-repos-https
+  sed -i '' -e "s|/bin/bash|/bin/sh|g" tools-scripts/clone-all-repos-https
 fi
 
 ./tools-scripts/clone-all-repos-https
 
 if [ "$kernel" = "FreeBSD" ]; then
   echo "Running on FreeBSD"
-  sed -i'' -e "s|pkg install|pkg install -y|g" tools-scripts/install-dependencies-freebsd
+  sed -i '' -e "s|pkg install|pkg install -y|g" tools-scripts/install-dependencies-freebsd
   ./tools-scripts/install-dependencies-freebsd
-  sed -i'' -e "s|GNUSTEP_ROOT=${USR_ROOT}/GNUstep|GNUSTEP_ROOT="/"|g" tools-scripts/build-freebsd
+  sed -i '' -e "s|GNUSTEP_ROOT=${USR_ROOT}/GNUstep|GNUSTEP_ROOT="/"|g" tools-scripts/build-freebsd
   ./tools-scripts/build-freebsd
   ln -s /System/Library/Makefiles/GNUstep.sh /etc/profile.d/GNUstep.sh
 fi
@@ -36,10 +36,10 @@ fi
 
 if [ "$kernel" = "FreeBSD" ]; then
   echo "Running on FreeBSD"
-  sed -i'' -e "s|/bin/bash|/bin/sh|g" tools-scripts/build-libs-tools-apps
-  sed -i'' -e "s|make -j${CPUS}|gmake -j${CPUS}|g" tools-scripts/build-libs-tools-apps
-  sed -i'' -e "s|&& make|&& gmake|g" tools-scripts/build-libs-tools-apps
-  sed -i'' -e "s|/usr/GNUstep/System/Library/Makefiles/GNUstep.sh|/System/Library/Makefiles/GNUstep.sh|g" tools-scripts/build-libs-tools-apps
+  sed -i '' -e "s|/bin/bash|/bin/sh|g" tools-scripts/build-libs-tools-apps
+  sed -i '' -e "s|make -j${CPUS}|gmake -j${CPUS}|g" tools-scripts/build-libs-tools-apps
+  sed -i '' -e "s|&& make|&& gmake|g" tools-scripts/build-libs-tools-apps
+  sed -i '' -e "s|/usr/GNUstep/System/Library/Makefiles/GNUstep.sh|/System/Library/Makefiles/GNUstep.sh|g" tools-scripts/build-libs-tools-apps
 fi
 
 ./tools-scripts/build-libs-tools-apps
