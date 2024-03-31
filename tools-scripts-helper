@@ -3,16 +3,17 @@
 # Check the output of uname command
 kernel=$(uname -s)
 
-if [ "$kernel" = "FreeBSD" ]; then
-  echo "Running on FreeBSD"
-  sed -i "s|/bin/bash|/bin/sh|g" tools-scripts/clone-all-repos-https
-fi
-
 if [ ! -d "gnustep-src" ] ; then
   mkdir gnustep-src
 fi
 cd gnustep-src
 git clone https://github.com/gnustep/tools-scripts
+
+if [ "$kernel" = "FreeBSD" ]; then
+  echo "Running on FreeBSD"
+  sed -i "s|/bin/bash|/bin/sh|g" tools-scripts/clone-all-repos-https
+fi
+
 ./tools-scripts/clone-all-repos-https
 
 if [ "$kernel" = "FreeBSD" ]; then
