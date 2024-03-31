@@ -31,5 +31,10 @@ if [ "$kernel" = "Linux" ]; then
   ./tools-scripts/build-linux
 fi
 
+if [ "$kernel" = "FreeBSD" ]; then
+  echo "Running on FreeBSD"
+  sed -i "s|/bin/bash|/bin/sh|g" tools-scripts/build-libs-tools-apps
+fi
+
 sed -i "s|/usr/GNUstep/System/Library/Makefiles/GNUstep.sh|/System/Library/Makefiles/GNUstep.sh|g" tools-scripts/build-libs-tools-apps
 ./tools-scripts/build-libs-tools-apps
