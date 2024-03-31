@@ -10,21 +10,20 @@ cd gnustep-src
 git clone https://github.com/gnustep/tools-scripts
 ./tools-scripts/clone-all-repos-https
 
-if [ "$kernel" = "Linux" ]; then
-  echo "Running on Linux"
-  ./tools-scripts/install-dependencies-linux
-  sed -i "s|/usr/GNUstep|/|g" tools-scripts/clang-build
-  sed -i "s|/usr/GNUstep/System/Library/Makefiles/GNUstep.sh|/System/Library/Makefiles/GNUstep.sh|g" tools-scripts/compile-all
-  ./tools-scripts/build-linux
-fi
-
 if [ "$kernel" = "FreeBSD" ]; then
   echo "Running on FreeBSD"
   ./tools-scripts/install-dependencies-freebsd
   sed -i "s|${USR_ROOT}/GNUstep|/|g" tools-scripts/build-freebsd
   ./tools-scripts/build-freebsd
   ln -s /System/Library/Makefiles/GNUstep.sh /etc/profile.d/GNUstep.sh
+fi
 
+if [ "$kernel" = "Linux" ]; then
+  echo "Running on Linux"
+  ./tools-scripts/install-dependencies-linux
+  sed -i "s|/usr/GNUstep|/|g" tools-scripts/clang-build
+  sed -i "s|/usr/GNUstep/System/Library/Makefiles/GNUstep.sh|/System/Library/Makefiles/GNUstep.sh|g" tools-scripts/compile-all
+  ./tools-scripts/build-linux
 fi
 
 . /etc/profile.d/GNUstep.sh
