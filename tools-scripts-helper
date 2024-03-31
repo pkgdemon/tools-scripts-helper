@@ -37,7 +37,7 @@ if [ "$kernel" = "FreeBSD" ]; then
   echo "Running on FreeBSD"
   sed -i '' -e "s|/bin/bash|/bin/sh|g" tools-scripts/build-libs-tools-apps
   sed -i '' -e "s|make -j${CPUS}|gmake -j${CPUS}|g" tools-scripts/build-libs-tools-apps
-  sed -i '' -e "s|&& make|&& gmake|g" tools-scripts/build-libs-tools-apps
+  sed -i '' -e 's|&& make|&& gmake|g' tools-scripts/build-libs-tools-apps
   sed -i '' -e "s|/usr/GNUstep/System/Library/Makefiles/GNUstep.sh|/System/Library/Makefiles/GNUstep.sh|g" tools-scripts/build-libs-tools-apps
 fi
 
