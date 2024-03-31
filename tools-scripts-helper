@@ -3,6 +3,12 @@
 # Check the output of uname command
 kernel=$(uname -s)
 
+if [ "$kernel" = "FreeBSD" ]; then
+  echo "Running on FreeBSD"
+  pkg install -y bash
+  ln -s /usr/local/bin/bash /bin/bash
+fi
+
 if [ ! -d "gnustep-src" ] ; then
   mkdir gnustep-src
 fi
