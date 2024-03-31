@@ -37,6 +37,9 @@ fi
 if [ "$kernel" = "Linux" ]; then
   echo "Running on Linux"
   ./tools-scripts/install-dependencies-linux || exit 1
+  sed -i '2iset -e' tools-scripts/build-linux
+  sed -i '2iset -e' tools-scripts/clang-build
+  sed -i '2iset -e' tools-scripts/compile-all
   sed -i "s|/usr/GNUstep|/|g" tools-scripts/clang-build
   sed -i "s|/usr/GNUstep/System/Library/Makefiles/GNUstep.sh|/System/Library/Makefiles/GNUstep.sh|g" tools-scripts/compile-all
   ./tools-scripts/build-linux || exit 1
