@@ -5,7 +5,7 @@ if [ ! -d "gnustep-src" ] ; then
 fi
 cd gnustep-src
 git clone https://github.com/gnustep/tools-scripts
-./tools-scripts/clone-essential-repos-https
+./tools-scripts/clone-all-repos-https
 ./tools-scripts/install-dependencies-linux
 sed -i "s|/usr/GNUstep|/|g" tools-scripts/clang-build
 sed -i "s|/usr/GNUstep/System/Library/Makefiles/GNUstep.sh|/System/Library/Makefiles/GNUstep.sh|g" tools-scripts/compile-all
