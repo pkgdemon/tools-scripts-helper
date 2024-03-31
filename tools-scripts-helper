@@ -26,5 +26,5 @@ if [ "$kernel" = "Linux" ]; then
   ./tools-scripts/build-linux
 fi
 
-. /etc/profile.d/GNUstep.sh
+sed -i "s|/usr/GNUstep/System/Library/Makefiles/GNUstep.sh|/System/Library/Makefiles/GNUstep.sh|g" tools-scripts/compile-all
 ./tools-scripts/build-libs-tools-apps
