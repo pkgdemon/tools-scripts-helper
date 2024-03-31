@@ -23,23 +23,23 @@ if [ "$kernel" = "FreeBSD" ]; then
   sed -i '' -e "s|/bin/bash|/bin/sh|g" tools-scripts/clone-all-repos-https
 fi
 
-./tools-scripts/clone-all-repos-https
+./tools-scripts/clone-all-repos-https || exit 1
 
 if [ "$kernel" = "FreeBSD" ]; then
   echo "Running on FreeBSD"
   sed -i '' -e "s|pkg install|pkg install -y|g" tools-scripts/install-dependencies-freebsd
-  ./tools-scripts/install-dependencies-freebsd
+  ./tools-scripts/install-dependencies-freebsd || exit 1
   sed -i '' -e 's|GNUSTEP_ROOT=${USR_ROOT}/GNUstep|GNUSTEP_ROOT="/"|g' tools-scripts/build-freebsd
-  ./tools-scripts/build-freebsd
+  ./tools-scripts/build-freebsd || exit 1
   ln -s /System/Library/Makefiles/GNUstep.sh /etc/profile.d/GNUstep.sh
 fi
 
 if [ "$kernel" = "Linux" ]; then
   echo "Running on Linux"
-  ./tools-scripts/install-dependencies-linux
+  ./tools-scripts/install-dependencies-linux || exit 1
   sed -i "s|/usr/GNUstep|/|g" tools-scripts/clang-build
   sed -i "s|/usr/GNUstep/System/Library/Makefiles/GNUstep.sh|/System/Library/Makefiles/GNUstep.sh|g" tools-scripts/compile-all
-  ./tools-scripts/build-linux
+  ./tools-scripts/build-linux || exit 1
   sed -i "s|/usr/GNUstep/System/Library/Makefiles/GNUstep.sh|/System/Library/Makefiles/GNUstep.sh|g" tools-scripts/build-libs-tools-apps
 fi
 
@@ -51,4 +51,4 @@ if [ "$kernel" = "FreeBSD" ]; then
   sed -i '' -e "s|/usr/GNUstep/System/Library/Makefiles/GNUstep.sh|/System/Library/Makefiles/GNUstep.sh|g" tools-scripts/build-libs-tools-apps
 fi
 
-./tools-scripts/build-libs-tools-apps
+./tools-scripts/build-libs-tools-apps || exit 1
