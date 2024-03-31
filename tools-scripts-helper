@@ -19,6 +19,7 @@ if [ "$kernel" = "FreeBSD" ]; then
   echo "Running on FreeBSD"
   ./tools-scripts/install-dependencies-freebsd
   sed -i "s|${USR_ROOT}/GNUstep|/|g" tools-scripts/build-freebsd
+  sed -i "s|pkg install|pkg install -y|g" tools-scripts/build-freebsd
   ./tools-scripts/build-freebsd
   ln -s /System/Library/Makefiles/GNUstep.sh /etc/profile.d/GNUstep.sh
 fi
