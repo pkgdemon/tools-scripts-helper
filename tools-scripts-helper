@@ -16,7 +16,7 @@ if [ ! -d "gnustep-src" ] ; then
   mkdir gnustep-src
 fi
 cd gnustep-src
-git clone https://github.com/pkgdemon/tools-scripts
+git clone https://github.com/gnustep/tools-scripts
 
 if [ "$kernel" = "FreeBSD" ]; then
   echo "Running on FreeBSD"
