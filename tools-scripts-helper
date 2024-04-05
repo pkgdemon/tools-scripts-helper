@@ -16,7 +16,7 @@ if [ ! -d "gnustep-src" ] ; then
   mkdir gnustep-src
 fi
 cd gnustep-src
-git clone https://github.com/pkgdemon/tools-scripts
+git clone https://github.com/gnustep/tools-scripts
 
 if [ "$kernel" = "FreeBSD" ]; then
   echo "Running on FreeBSD"
@@ -39,7 +39,7 @@ if [ "$kernel" = "Linux" ]; then
   #sed -i '2iset -e' tools-scripts/install-dependencies-linux
   apt update && apt upgrade -fy
   ./tools-scripts/install-dependencies-linux || exit 1
-  ./tools-scripts/clang-setup || exit 1
+  #./tools-scripts/clang-setup || exit 1
   #sed -i '2iset -e' tools-scripts/build-linux
   #sed -i '2iset -e' tools-scripts/clang-build
   #sed -i '2iset -e' tools-scripts/compile-all
