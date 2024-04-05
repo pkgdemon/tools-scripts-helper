@@ -45,7 +45,7 @@ if [ "$kernel" = "Linux" ]; then
   #sed -i '2iset -e' tools-scripts/compile-all
   #sed -i "s|/usr/GNUstep|/|g" tools-scripts/clang-build
   #sed -i "s|/usr/GNUstep/System/Library/Makefiles/GNUstep.sh|/System/Library/Makefiles/GNUstep.sh|g" tools-scripts/compile-all
-  #./tools-scripts/build-linux || exit 1
+  ./tools-scripts/build-linux || exit 1
   #sed -i '2iset -e' tools-scripts/build-libs-tools-apps
   #sed -i "s|/usr/GNUstep/System/Library/Makefiles/GNUstep.sh|/System/Library/Makefiles/GNUstep.sh|g" tools-scripts/build-libs-tools-apps
 fi
