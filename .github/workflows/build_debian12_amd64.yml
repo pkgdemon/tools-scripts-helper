@@ -12,7 +12,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     container:
-        image: debian:bullseye-slim
+        image: debian:bullseye
         options: >-
           --privileged
           --name debian
