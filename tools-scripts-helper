@@ -36,9 +36,9 @@ fi
 
 if [ "$kernel" = "Linux" ]; then
   echo "Running on Linux"
-  sed -i '2iset -e' tools-scripts/install-dependencies-linux
+  #sed -i '2iset -e' tools-scripts/install-dependencies-linux
   apt update && apt upgrade -fy
-  #./tools-scripts/install-dependencies-linux || exit 1
+  ./tools-scripts/install-dependencies-linux || exit 1
   ./tools-scripts/clang-setup || exit 1
   sed -i '2iset -e' tools-scripts/build-linux
   sed -i '2iset -e' tools-scripts/clang-build
