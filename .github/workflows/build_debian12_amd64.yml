@@ -12,7 +12,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     container:
-        image: debian:bullseye
+        image: debian:bookworm
         options: >-
           --privileged
           --name debian
