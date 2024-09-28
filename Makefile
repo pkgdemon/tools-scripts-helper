@@ -50,6 +50,7 @@ uninstall: check_root
 	fi; \
 	if [ -f "/tmp/libdispatch/build/install_manifest.txt" ]; then \
 	  xargs rm < /tmp/libdispatch/build/install_manifest.txt; \
+	  rm -rf /tmp/libdispatch; \
 	  removed="$$removed libdispatch"; \
 	  echo "Removed libdispatch"; \
 	fi; \
