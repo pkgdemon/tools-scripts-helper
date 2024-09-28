@@ -16,7 +16,6 @@ install: check_root
 	  git clone https://github.com/gnustep/tools-scripts /tmp/GNUstep/tools-scripts/
 	fi
 
-# Define the uninstall target
 uninstall: check_root
 	@removed=""; \
 	if [ -L "/etc/profile.d/GNUstep.sh" ]; then \
@@ -49,8 +48,6 @@ uninstall: check_root
 	else \
 	  echo "No items needed to be removed."; \
 	fi
-
-	# Define the clean target
 
 clean: check_root
 	@echo "Cleaning main project..."
