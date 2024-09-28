@@ -12,7 +12,7 @@ install: check_root
 	  exit 0; \
 	else \
 	  WORKDIR=`pwd`; \
-	  rm /tmp/GNUstep >/dev/null 2>&1 || true; \
+	  rm -rf /tmp/GNUstep >/dev/null 2>&1 || true; \
 	  rm -rf /tmp/libdispatch 2>&1 || true; \
 	  rm -rf /tmp/libobjc2 2>&1 || true; \
 	  mkdir /tmp/GNUstep; \
