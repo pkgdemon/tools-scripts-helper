@@ -48,6 +48,11 @@ uninstall: check_root
 	  removed="$$removed /usr/share/xsessions/gnustep-wmaker.desktop"; \
 	  echo "Removed /usr/share/xsessions/gnustep-wmaker.desktop"; \
 	fi; \
+	if [ -f "/tmp/libdispatch/build/install_manifest.txt" ]; then \
+	  /tmp/libdispatch/build/install_manifest.txt; \
+	  removed="$$removed cat /tmp/libdispatch/build/install_manifest.txt"; \
+	  echo "Removed libdispatch"; \
+	fi; \
 	if [ -n "$$removed" ]; then \
 	  exit 0; \
 	else \
