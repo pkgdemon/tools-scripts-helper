@@ -18,6 +18,7 @@ install: check_root
 	  git clone https://github.com/gnustep/tools-scripts /tmp/GNUstep/tools-scripts/ --depth=1; \
 	  cd /tmp/GNUstep && ./tools-scripts/install-dependencies-linux; \
 	  cd /tmp/GNUstep && ./tools-scripts/clone-all-repos-https; \
+	  cd /tmp/GNUstep && ./tools-scripts/build-linux; \
 	fi
 
 uninstall: check_root
