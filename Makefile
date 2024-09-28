@@ -12,10 +12,9 @@ install: check_root
 	  exit 0; \
 	else \
 	  WORKDIR=`pwd`; \
-	  rm -rf /tmp/GNUstep >/dev/null 2>&1 || true; \
 	  rm -rf /tmp/libdispatch 2>&1 || true; \
 	  rm -rf /tmp/libobjc2 2>&1 || true; \
-	  mkdir /tmp/GNUstep; \
+	  mkdir /tmp/GNUstep >/dev/null 2>&1 || true; \
 	  git clone https://github.com/gnustep/tools-scripts /tmp/GNUstep/tools-scripts/ --depth=1; \
 	  cd /tmp/GNUstep && ./tools-scripts/install-dependencies-linux; \
 	  cd /tmp/GNUstep && ./tools-scripts/clone-all-repos-https; \
