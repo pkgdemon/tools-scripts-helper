@@ -15,7 +15,7 @@ install: check_root
 	  rm -rf /tmp/libdispatch 2>&1 || true; \
 	  rm -rf /tmp/libobjc2 2>&1 || true; \
 	  mkdir /tmp/GNUstep >/dev/null 2>&1 || true; \
-	  git clone https://github.com/gnustep/tools-scripts /tmp/GNUstep/tools-scripts/ --depth=1; \
+	  git clone -b add-arch-linux-packages https://github.com/pkgdemon/tools-scripts /tmp/GNUstep/tools-scripts/ --depth=1; \
 	  cd /tmp/GNUstep && ./tools-scripts/install-dependencies-linux; \
 	  cd /tmp/GNUstep && ./tools-scripts/clone-all-repos-https; \
 	  cd /tmp/GNUstep && ./tools-scripts/build-linux; \
