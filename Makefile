@@ -12,8 +12,11 @@ install: check_root
 	  exit 0; \
 	else \
 	  WORKDIR=`pwd`; \
-	  if [ ! -d "/tmp/GNUstep/" ] ; then mkdir /tmp/GNUstep ; fi
-	  git clone https://github.com/gnustep/tools-scripts /tmp/GNUstep/tools-scripts/
+	  rm /tmp/GNUstep >/dev/null 2>&1 || true; \
+	  rm -rf /tmp/libdispatch 2>&1 || true; \
+	  rm -rf /tmp/libobjc2 2>&1 || true; \
+	  mkdir /tmp/GNUstep; \
+	  git clone https://github.com/gnustep/tools-scripts /tmp/GNUstep/tools-scripts/; \
 	fi
 
 uninstall: check_root
@@ -64,7 +67,7 @@ clean: check_root
 	fi
 	@if [ -d "/tmp/libobjc2" ]; then \
 	  echo "Removing /tmp/libobjc2..."; \
-	  rm -rf /tmp/libdispatch; \
+	  rm -rf /tmp/libobjc2; \
 	fi
 	@if [ -d "/tmp/libdispatch" ]; then \
 	  echo "Removing /tmp/libdispatch..."; \
